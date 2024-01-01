@@ -6,6 +6,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -50,14 +51,20 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 800px;
+  font-size: 30px;
+  height: 400px;
 }
 
 .content {
-  width: 440px;
-  height: 400px;
-  background-color: grey;
-  border: 1px solid black;
+  color: white;
   border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
   display: flex;
   justify-content: center;
   align-items: center;

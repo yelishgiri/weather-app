@@ -7,26 +7,30 @@ const renderDom = function (object) {
   }
   const generatedContent = document.createElement("div");
   generatedContent.setAttribute("id", "generated");
+  const headingDiv = document.createElement("div");
+  headingDiv.setAttribute("class", "heading");
   const location = document.createElement("h1");
   const tempDiv = document.createElement("div");
   const humidityDiv = document.createElement("div");
-  const conditionDiv = document.createElement("div");
+  const conditionDiv = document.createElement("h2");
   const feelTempDiv = document.createElement("div");
   const iconDiv = document.createElement("img");
+  iconDiv.style.cssText = "width: 100px; height: 100px;";
   location.textContent = `${object.location.name}`;
-  tempDiv.textContent = `${object.current.temp_c}`;
-  humidityDiv.textContent = `${object.current.humidity}`;
+  tempDiv.textContent = `Temperature: ${object.current.temp_c}C`;
+  humidityDiv.textContent = `Humidity: ${object.current.humidity}`;
   conditionDiv.textContent = `${object.current.condition.text}`;
-  feelTempDiv.textContent = `${object.current.feelslike_c}`;
+  feelTempDiv.textContent = `Feels Like: ${object.current.feelslike_c}C`;
   iconDiv.setAttribute("src", `${object.current.condition.icon}`);
+  headingDiv.append(location, iconDiv);
   generatedContent.append(
-    location,
-    tempDiv,
-    humidityDiv,
+    headingDiv,
     conditionDiv,
-    iconDiv,
+    tempDiv,
     feelTempDiv,
+    humidityDiv,
   );
+
   content.appendChild(generatedContent);
 };
 
